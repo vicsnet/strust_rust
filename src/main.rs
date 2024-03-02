@@ -11,11 +11,33 @@ struct Rectangle{
     height: u32,
 }
 
+#[derive(Debug)]
+struct Rect{
+    width:u32,
+    height:u32,
+}
+
+impl Rect{
+    fn my_area(&self) ->u32{
+        self.width * self.height
+    }
+}
+
 fn main() {
     println!("struct!");
     let width1 = 30;
     let height1 = 50;
 
+    // method syntax
+    let my_rect = Rect{
+        width:40,
+        height:20,
+    };
+
+ println!(
+        "The area of the REC is {} square pixels.",
+        my_rect.my_area()
+    );
     // tuple
     let rect1 = (10, 50);
     println!("area of rect using tupple is {} square pixels",area_dimensions(rect1));
