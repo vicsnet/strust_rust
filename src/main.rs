@@ -5,6 +5,12 @@ struct User{
     sign_in_count: u64,
 }
 
+// Refactoring with struct
+struct Rectangle{
+    width: u32,
+    height: u32,
+}
+
 fn main() {
     println!("struct!");
     let width1 = 30;
@@ -16,10 +22,12 @@ fn main() {
     println!("the area of the rectangle is {} square pixels.", area(width1, height1));
 
     // Refactoring with struct
-    struct Rectangle{
-        width: u32,
-        height: u32,
-    }
+    let rectangle1 = &Rectangle{
+        width: 10,
+        height: 10,
+    };
+
+    println!("the area of rectangle using struct is {} square pixel", area_struct(rectangle1));
 
     let mut user1 = User{
         active:true,
@@ -53,4 +61,8 @@ fn area_dimensions(dimensions: (u32, u32))->u32{
     dimensions.0 * dimensions.1
 }
 
+// using struct refractoring
+fn area_struct(rectangle: &Rectangle) ->u32{
+    rectangle.width * rectangle.height
+}
 
